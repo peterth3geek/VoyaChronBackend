@@ -12,7 +12,7 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create campaign" do
     assert_difference('Campaign.count') do
-      post campaigns_url, params: { campaign: { description: @campaign.description, title: @campaign.title } }, as: :json
+      post campaigns_url, params: { campaign: { description: @campaign.description, dm_id: @campaign.dm_id, game_id: @campaign.game_id, title: @campaign.title } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update campaign" do
-    patch campaign_url(@campaign), params: { campaign: { description: @campaign.description, title: @campaign.title } }, as: :json
+    patch campaign_url(@campaign), params: { campaign: { description: @campaign.description, dm_id: @campaign.dm_id, game_id: @campaign.game_id, title: @campaign.title } }, as: :json
     assert_response 200
   end
 

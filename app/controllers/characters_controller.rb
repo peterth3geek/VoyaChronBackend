@@ -5,12 +5,12 @@ class CharactersController < ApplicationController
   def index
     @characters = Character.all
 
-    render json: @characters
+    render json: all_formatted(@characters)
   end
 
   # GET /characters/1
   def show
-    render json: @character
+    render json: @character.formatted
   end
 
   # POST /characters
@@ -46,6 +46,6 @@ class CharactersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def character_params
-      params.require(:character).permit(:name, :biography)
+      params.require(:character).permit(:name, :biography, :notes, :npc, :user_id, :campaign_id)
     end
 end

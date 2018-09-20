@@ -5,12 +5,12 @@ class StoryModulesController < ApplicationController
   def index
     @story_modules = StoryModule.all
 
-    render json: @story_modules
+    render json: all_formatted(@story_modules)
   end
 
   # GET /story_modules/1
   def show
-    render json: @story_module
+    render json: @story_module.formatted
   end
 
   # POST /story_modules
@@ -46,6 +46,6 @@ class StoryModulesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def story_module_params
-      params.require(:story_module).permit(:chapter_id, :title, :description, :location_id)
+      params.require(:story_module).permit(:title, :description, :chapter_id, :location_id)
     end
 end

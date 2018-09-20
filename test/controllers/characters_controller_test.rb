@@ -12,7 +12,7 @@ class CharactersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create character" do
     assert_difference('Character.count') do
-      post characters_url, params: { character: { biography: @character.biography, name: @character.name } }, as: :json
+      post characters_url, params: { character: { biography: @character.biography, campaign_id: @character.campaign_id, name: @character.name, notes: @character.notes, npc: @character.npc, user_id: @character.user_id } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class CharactersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update character" do
-    patch character_url(@character), params: { character: { biography: @character.biography, name: @character.name } }, as: :json
+    patch character_url(@character), params: { character: { biography: @character.biography, campaign_id: @character.campaign_id, name: @character.name, notes: @character.notes, npc: @character.npc, user_id: @character.user_id } }, as: :json
     assert_response 200
   end
 

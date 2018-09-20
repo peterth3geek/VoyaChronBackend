@@ -5,12 +5,12 @@ class ChaptersController < ApplicationController
   def index
     @chapters = Chapter.all
 
-    render json: @chapters
+    render json: all_formatted(@chapters)
   end
 
   # GET /chapters/1
   def show
-    render json: @chapter
+    render json: @chapter.formatted
   end
 
   # POST /chapters
@@ -46,6 +46,6 @@ class ChaptersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def chapter_params
-      params.require(:chapter).permit(:campaign_id, :title, :description)
+      params.require(:chapter).permit(:title, :description, :campaign_id)
     end
 end

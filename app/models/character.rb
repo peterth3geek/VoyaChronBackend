@@ -1,11 +1,25 @@
 class Character < ApplicationRecord
-  has_many :users, through: :user_characters
-  has_many :events
-  has_many :campaigns, through: :character_campaigns
-  # has_one :character_stats_dn_d5e
 
-  def character_stats
-    CharacterStatsDnD5e.find_by(character_id: self.id)
+  belongs_to :user
+  belongs_to :campaign
+  has_many :events
+  has_many :chapters, through: :campaign
+  has_many :story_modules, through: :events
+
+  def formatted
+    {id: self.id, name: self.name, player: self.user.formatted_lite, campaign: self.campaign.formatted_mid, events: self.events}
+  end
+
+  def formatted_mid1
+    {id: self.id, name: self.name, player: self.user.formatted_lite}
+  end
+
+  def formatted_mid2
+    {id: self.id, name: self.name, campaign: self.campaign.formatted_lite}
+  end
+
+  def formatted_lite
+    {id: self.id, name: self.name}
   end
 
 end

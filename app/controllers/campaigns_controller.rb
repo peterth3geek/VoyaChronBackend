@@ -5,7 +5,7 @@ class CampaignsController < ApplicationController
   def index
     @campaigns = Campaign.all
 
-    render json: @campaigns
+    render json: all_formatted(@campaigns)
   end
 
   # GET /campaigns/1
@@ -46,6 +46,6 @@ class CampaignsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def campaign_params
-      params.require(:campaign).permit(:title, :description)
+      params.require(:campaign).permit(:title, :description, :game_id, :dm_id)
     end
 end

@@ -2,10 +2,10 @@
 
 one:
   character_id: 1
+  story_module_id: 1
   description: MyString
-  story_id: 1
 
 two:
   character_id: 1
+  story_module_id: 1
   description: MyString
-  story_id: 1

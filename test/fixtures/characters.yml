@@ -3,7 +3,15 @@
 one:
   name: MyString
   biography: MyString
+  notes: MyString
+  npc: false
+  user_id: 1
+  campaign_id: 1
 
 two:
   name: MyString
   biography: MyString
+  notes: MyString
+  npc: false
+  user_id: 1
+  campaign_id: 1

@@ -3,7 +3,11 @@
 one:
   title: MyString
   description: MyString
+  game_id: 1
+  dm_id: 1
 
 two:
   title: MyString
   description: MyString
+  game_id: 1
+  dm_id: 1
