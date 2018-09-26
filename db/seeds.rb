@@ -12,6 +12,10 @@ Game.create(title: 'Dungeons and Dragons 5th Edition', description: 'The 5th Edi
   User.create(username: Faker::Internet.username, email: Faker::Internet.email, about: Faker::Lorem.paragraph, password_digest: Faker::Internet.password)
 end
 
+  # User.all.map do |user|
+  #   Character.create(name: Faker::ElderScrolls.name, biography: Faker::Lorem.paragraph, npc: false, notes: Faker::StarWars.quote, user_id: user.id, campaign_id: 1+rand(3))
+  # end
+
 12.times do
   Character.create(name: Faker::ElderScrolls.name, biography: Faker::Lorem.paragraph, npc: false, notes: Faker::StarWars.quote, user_id: 1+rand(6), campaign_id: 1+rand(3))
 end
