@@ -8,11 +8,11 @@ class User < ApplicationRecord
   has_many :locations, through: :story_modules
 
   def formatted
-    {id: self.id, username: self.username, email: self.email, about: self.about, characters: self.characters_mid2, campaigns_as_player: self.campaigns_lite_player, campaigns_as_gm: self.campaigns_lite_gm}
+    {id: self.id, username: self.username, email: self.email, about: self.about, characters: self.characters_formatted, campaigns: self.campaigns_lite, events: self.events_formatted}
   end
 
   def formatted_mid
-    {id: self.id, username: self.username, characters: self.characters_mid2, campaigns_as_player: self.campaigns_lite_player, campaigns_as_gm: self.campaigns_lite_gm}
+    {id: self.id, username: self.username, characters: self.characters_formatted, events: self.events_formatted, campaigns: self.campaigns_lite}
   end
 
   def formatted_lite

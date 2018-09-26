@@ -7,4 +7,8 @@ class Event < ApplicationRecord
   has_one :campaign, through: :chapter
   has_one :user, through: :character
 
+  def formatted
+    {id: self.id, description: self.description, character: self.character.formatted_mid1, campaign: self.campaign.formatted_lite}
+  end
+
 end

@@ -10,7 +10,7 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns/1
   def show
-    render json: @campaign
+    render json: @campaign.formatted
   end
 
   # POST /campaigns

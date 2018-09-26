@@ -7,7 +7,7 @@ class Character < ApplicationRecord
   has_many :story_modules, through: :events
 
   def formatted
-    {id: self.id, name: self.name, player: self.user.formatted_lite, campaign: self.campaign.formatted_mid, events: self.events}
+    {id: self.id, name: self.name, player: self.user.formatted_lite, campaign: self.campaign.formatted_mid, events: self.events_formatted, biography: self.biography, notes: self.notes}
   end
 
   def formatted_mid1
@@ -15,7 +15,7 @@ class Character < ApplicationRecord
   end
 
   def formatted_mid2
-    {id: self.id, name: self.name, campaign: self.campaign.formatted_lite}
+    {id: self.id, name: self.name, campaign: self.campaign.formatted_mid, events: self.events_formatted, player: self.user_lite}
   end
 
   def formatted_lite

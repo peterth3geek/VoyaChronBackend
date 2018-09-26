@@ -10,20 +10,17 @@ def users_lite
   end
 end
 
+def user_lite
+  self.user.formatted_lite
+end
+
 # Campaign Functions
 
-def campaigns_lite_player
-  self.campaigns.select{|campaign| campaign.dm_id != self.id}.map{ |campaign|
-      campaign.formatted_lite
-    }
+def campaigns_lite
+  self.campaigns.map do |campaign|
+      campaign.formatted_mid
+    end
 end
-
-def campaigns_lite_gm
-  self.campaigns.select{|campaign| campaign.dm_id == self.id}.map{ |campaign|
-      campaign.formatted_lite
-    }
-end
-
 
   # Character Functions
 
@@ -42,6 +39,12 @@ end
   def characters_mid2
     self.characters.map do |character|
       character.formatted_mid2
+    end
+  end
+
+  def characters_formatted
+    self.characters.map do |character|
+      character.formatted
     end
   end
 
@@ -78,6 +81,12 @@ end
   def locations_lite
     self.locations.map do |location|
       location.formatted_lite
+    end
+  end
+
+  def events_formatted
+    self.events.map do |event|
+      event.formatted
     end
   end
 

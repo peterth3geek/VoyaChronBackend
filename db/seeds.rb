@@ -36,6 +36,13 @@ Chapter.all.map do |chapter|
   end
 end
 
+Character.all.map do |character|
+  5.times do
+    story_id = character.campaign.story_modules.sample.id
+    Event.create(description: Faker::Seinfeld.quote, story_module_id: story_id, character_id: character.id)
+  end
+end
+
 # StoryModule.all.map do |story|
 #   1+rand(6).times do
 #     Event.create(character_id: story.campaign.characters.sample.id, description: Faker::Seinfeld.quote, story_module_id: story.id)
