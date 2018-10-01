@@ -12,15 +12,15 @@ class StoryModule < ApplicationRecord
   has_many :users, through: :campaign
 
   def formatted
-    {id: self.id, title: self.title, description: self.description, campaign: self.campaign.formatted_lite, chapter: self.chapter.formatted_lite, location: self.location.formatted_lite, characters: self.characters_mid1, events: self.events}
+    {id: self.id, title: self.title, description: self.description, campaign: self.campaign.formatted_lite, chapter: self.chapter.formatted_lite, location: self.location.formatted_lite, characters: self.characters_mid1, events: self.events_formatted}
   end
 
   def formatted_mid
-    {id: self.id, title: self.title, description: self.description, location: self.location.formatted_lite}
+    {id: self.id, title: self.title, description: self.description, location: self.location.formatted_lite, chapter: self.chapter.formatted_lite, events: self.events_formatted}
   end
 
   def formatted_lite
-    {id: self.id, title: self.title, description: self.description, location: self.location.formatted_lite }
+    {id: self.id, title: self.title, description: self.description, location: self.location.formatted_lite, chapter: self.chapter.formatted_lite}
   end
 
 end

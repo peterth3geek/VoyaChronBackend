@@ -16,7 +16,7 @@ class Chapter < ApplicationRecord
   end
 
   def formatted_lite
-    {id: self.id, title: self.title}
+    {id: self.id, title: self.title, campaign: self.campaign.formatted_lite, description: self.description}
   end
 
 end

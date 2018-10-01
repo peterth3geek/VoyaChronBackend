@@ -90,4 +90,10 @@ end
     end
   end
 
+  def events_formatted_lite
+    self.events.map do |event|
+      event.formatted_lite
+    end
+  end
+
 end
