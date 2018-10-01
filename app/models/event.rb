@@ -12,4 +12,8 @@ class Event < ApplicationRecord
     {id: self.id, description: self.description, character: self.character.formatted_mid1, campaign: self.campaign.formatted_lite, session: self.story_module.formatted_lite}
   end
 
+  def formatted_lite
+    {id: self.id, description: self.description, character: self.character.formatted_lite}
+  end
+
 end
