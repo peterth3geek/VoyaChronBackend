@@ -1,6 +1,7 @@
 class StoryModule < ApplicationRecord
 
   belongs_to :location
+  # has_one :location
   belongs_to :chapter
 
   has_many :events
@@ -19,7 +20,7 @@ class StoryModule < ApplicationRecord
   end
 
   def formatted_lite
-    {id: self.id, title: self.title, description: self.description }
+    {id: self.id, title: self.title, description: self.description, location: self.location.formatted_lite }
   end
 
 end
