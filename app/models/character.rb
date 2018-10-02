@@ -19,7 +19,7 @@ class Character < ApplicationRecord
   end
 
   def formatted_lite
-    {id: self.id, name: self.name}
+    {id: self.id, name: self.name, player: self.user.formatted_lite}
   end
 
 end

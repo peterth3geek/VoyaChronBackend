@@ -18,7 +18,7 @@ class StoryModulesController < ApplicationController
     @story_module = StoryModule.new(story_module_params)
 
     if @story_module.save
-      render json: @story_module, status: :created, location: @story_module
+      render json: @story_module.formatted, status: :created, location: @story_module
     else
       render json: @story_module.errors, status: :unprocessable_entity
     end

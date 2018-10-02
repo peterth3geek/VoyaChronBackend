@@ -18,7 +18,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.new(chapter_params)
 
     if @chapter.save
-      render json: @chapter, status: :created, location: @chapter
+      render json: @chapter.formatted, status: :created, location: @chapter
     else
       render json: @chapter.errors, status: :unprocessable_entity
     end

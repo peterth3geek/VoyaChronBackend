@@ -18,7 +18,7 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
 
     if @character.save
-      render json: @character, status: :created, location: @character
+      render json: @character.formatted, status: :created, location: @character
     else
       render json: @character.errors, status: :unprocessable_entity
     end

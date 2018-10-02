@@ -18,7 +18,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_params)
 
     if @campaign.save
-      render json: @campaign, status: :created, location: @campaign
+      render json: @campaign.formatted, status: :created, location: @campaign
     else
       render json: @campaign.errors, status: :unprocessable_entity
     end
